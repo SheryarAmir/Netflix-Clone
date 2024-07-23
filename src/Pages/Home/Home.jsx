@@ -30,7 +30,8 @@ const Home = () => {
               <img src={info_icon} alt="" /> More Info
             </button>
           </div>
-          <TittleCart />
+          <div className="tittleCart"><TittleCart /></div>
+          
         </div>
       </div>
        <div className="more-cards">

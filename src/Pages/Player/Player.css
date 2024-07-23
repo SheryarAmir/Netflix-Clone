@@ -27,3 +27,13 @@ align-items: center;
     justify-content:space-between ;
     width: 90%;
 }
+
+@media(max-width:800px){
+
+    .player img {
+      
+        width: 50px;
+        margin-top: 40px;
+    } 
+    
+}

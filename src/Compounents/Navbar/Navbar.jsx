@@ -7,6 +7,7 @@ import profile_img from "../../assets/profile_img.png";
 import caret_icon from "../../assets/caret_icon.svg";
 
 import  { useState, useEffect } from 'react';
+import { logout } from "../../Firebase";
 
 
 const Navbar = () => {
@@ -57,7 +58,7 @@ const navRef =useRef();
           <img src={caret_icon} alt="" />
 
 <div className="Dropdown">
-    <p>Sign out of Netflix</p>
+    <p onClick={()=>{logout()}}>Sign out of Netflix</p>
     
 </div>
 

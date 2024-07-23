@@ -50,3 +50,23 @@ margin-bottom: 30px;
 
     transition: 2s;
 }
+
+
+
+@media(max-width:800px) {
+    
+    .foooter-Icon img{
+
+        width: 25px;
+       
+    }
+
+    .Footer ul{
+        display:grid;
+        grid-template-columns:auto auto;
+        gap: 8px;
+        font-size: 14px;
+        text-align: center;
+    }
+    
+}

@@ -40,3 +40,49 @@ display: none;
   text-decoration: none;
   color: white;
 }
+
+
+@media(max-width:800px){
+
+.tittlecards{
+  margin-top:20px ;
+  margin-bottom: 0 ;
+}
+
+
+.tittlecards h2{
+font-size: 20px;
+}
+.card img{
+  width: 200px;
+}
+
+.card p{
+  font-size: 12px;
+  bottom: 5px;
+  right: 55px;
+ 
+}
+
+}
+
+
+
+@media(max-width:500px){
+
+  
+  .tittlecards h2{
+  font-size: 15px;
+  }
+   .card img{
+    width: 165px;
+  } 
+  .card p{
+   font-size: 10px;
+     bottom: 5px;
+     right: 105px;
+    
+  
+  }
+
+}
