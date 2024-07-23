@@ -1,56 +1,67 @@
-import React from 'react';
-import Slider from 'react-slick';
-import './TittleCart.css';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import cards_data from '../../assets/cards/Cards_data';
+import React, { useEffect, useRef, useState } from 'react';
+import cards_data from "../../assets/cards/Cards_data";
+import "./TittleCart.css";
+import { Link } from 'react-router-dom';
 
-const TittleCart = ({title ,category}) => {
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 1200,
-    slidesToShow: 6,
-    slidesToScroll: 1,
-    autoplay: true,           // Add autoplay
-    autoplaySpeed: 1000,      // Set autoplay speed
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          autoplay: true,      // Add autoplay for this breakpoint
-          autoplaySpeed: 1000, // Set autoplay speed for this breakpoint
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          autoplay: true,      // Add autoplay for this breakpoint
-          autoplaySpeed: 1000, // Set autoplay speed for this breakpoint
-        }
-      }
-    ]
+const TittleCart = ({title , category}) => {
+
+const [apiData , setApiData]=useState([
+
+
+])
+
+
+
+  const cardsRef= useRef()
+
+
+
+  
+
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0OTU4MmY3YTNkMDkwZmViZDQ1OWUwMWYxM2Y3MjI1YSIsIm5iZiI6MTcyMTQxOTA4Ny43OTU3NzUsInN1YiI6IjY2OWFjM2JiYTZlMzRkMGJlYWJmYThlZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.72noWt7upy4LxXufSq6qU16uQvwqIE2SuFvtFZPHqn4'
+    }
   };
+  
 
+
+
+
+  const handleWheel=(event)=>{
+event.preventDefault();
+cardsRef.current.scrollLeft += event.deltaY;
+  }
+
+
+  useEffect(()=>{
+
+    fetch(`https://api.themoviedb.org/3/movie/${category?category:"now_playing"}?language=en-US&page=1`, options)
+    .then(response => response.json())
+    .then(response => setApiData(response.results))
+    .catch(err => console.error(err));
+
+    // 
+
+cardsRef.current.addEventListener('wheel' ,handleWheel);
+
+  },[])
   return (
-    <div className='Tittle-Cart'>
-      <h2>{title ? title :"Popular on Netflix"}</h2>
-      <Slider {...settings}>
-        {cards_data.map((card, index) => (
-          <div className='card' key={index}>
-            <img className="img" src={card.image} alt={card.name} />
-            <div className="overlay">
-              <p>{card.name}</p>
-            </div>
-          </div>
-        ))}
-      </Slider>
+    <div className='tittlecards'>
+      <h2 >{ title ? title : " Popular on Netflix " }</h2>
+      <div className="card-list" ref={cardsRef}>
+        {apiData.map((card, index) => {
+
+return <Link to={`/Player/${card.id}`} className="card" key={index}>
+            <img className="card-image" src={ `https://image.tmdb.org/t/p/w500/` + card.backdrop_path} alt={card.name} />
+            <p>{card.original_title}</p>
+          </Link>
+        })}
+      </div>
     </div>
   );
-};
+}
 
 export default TittleCart;

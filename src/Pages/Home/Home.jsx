@@ -5,6 +5,7 @@ import hero_banner from "../../assets/hero_banner.jpg";
 import hero_title from "../../assets/hero_title.png";
 import play_icon from "../../assets/play_icon.png";
 import info_icon from "../../assets/info_icon.png";
+import Footer from "../../Compounents/Footer/Footer";
 import TittleCart from "../../Compounents/TittleCart/TittleCart";
 const Home = () => {
   return (
@@ -32,12 +33,13 @@ const Home = () => {
           <TittleCart />
         </div>
       </div>
-      <div className="more-cards">
-      <TittleCart  title={"Blockbuster Movies"}/>
-      <TittleCart  title={"Only On Netflix"}/>
-      <TittleCart  title={"Ucoming"}/>
-      <TittleCart  title={" Top pick Movies for you "} />
-      </div>
+       <div className="more-cards">
+      <TittleCart  title={"Blockbuster Movies"} category={"top_rated"}/>
+      <TittleCart  title={"Only On Netflix"} category={"popular"}/>
+      <TittleCart title={"Ucoming"} category={"upcoming"}/>
+      <TittleCart title={" Top pick Movies for you "} category={"now_playing"} />
+      </div> 
+       <Footer/> 
     </div>
   );
 };

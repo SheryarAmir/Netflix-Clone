@@ -1,78 +1,42 @@
-/* .Tittle-Cart {
-margin-top: 50px;
-margin-bottom: 30px;
-}
-.Tittle-Cart h2 {
-    
-    margin-bottom: 8px;
-    }
-
-.Cart-list {
-   display: flex;
-    row-gap: 10px;
-    overflow-x: scroll;
+.tittlecards {
+  margin-top: 50px;
+  margin-bottom: 30px;
 }
 
+.tittlecards h2 {
+  margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: 600;
 
-.img{
-width: 240px;
-    border-radius: 4px;
-    cursor: pointer;
+}
+
+.card-list {
+  display: flex;
+  gap: 10px;
+  overflow-x: scroll;
+}
+
+.card-list::-webkit-scrollbar{
+display: none;
 }
 
 .card {
-position: relative;
-
+  position: relative;
+   flex: 0 0 auto; 
+  /* Ensures the card does not grow or shrink  */
+  width: 240px;   /* Sets a fixed width for the card */
 }
 
-.card p{
-    position:absolute;
-    bottom: 5px;
-    right:10px
-    
-    } */
+.card img {
+  width: 100%;   /* Ensures the image takes up the full width of the card */
+  border-radius: 4px;
+  cursor: pointer;
+} 
 
-    .Tittle-Cart {
-               overflow: hidden;
-      }
-      
-      .Tittle-Cart h2 {
-        font-size: 25px;
-        margin-bottom: 20px;
-        margin-top: 10px;
-        font-weight: 600;
-      }
-      
-      .card {
-        outline: none;
-        position: relative;
-        margin: 20px 0px;
-       
-      }
-      
-      .img {
-        width: 100%;
-        height: auto;
-        border-radius: 10px;
-        padding: 0px 2px;
-      }
-      
-      .overlay {
-        
-        width: 100%;
-        position: absolute;
-        bottom: 0px;
-        left: 0px;
-        right: 0px;
-        background-color: rgba(0, 0, 0, 0.5);
-        color: white;
-        padding:  4px;
-        text-align: center;
-        border-radius: 0 0 10px 10px;
-      }
-      
-      .slick-prev:before,
-      .slick-next:before {
-        color: black;
-      }
-      
+.card p {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  text-decoration: none;
+  color: white;
+}

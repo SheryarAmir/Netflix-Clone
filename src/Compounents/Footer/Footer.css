@@ -1,0 +1,52 @@
+.Footer {
+
+padding: 30px 4%;
+max-width: 1000px;
+margin: 0 auto;
+}
+
+.foooter-Icon {
+    display: flex;
+    gap:20px;
+    margin: 40px 0;
+}
+
+.foooter-Icon img{
+   width: 30px;
+   cursor: pointer;
+
+}
+.foooter-Icon img:hover{
+    transform: rotateX(360deg);
+
+    transition: 2s;
+}
+
+
+.Footer ul {
+display: grid;
+grid-template-columns:auto auto auto auto ;
+gap: 15px;
+list-style: none;
+margin-bottom: 30px;
+}
+.Footer ul li:hover{
+    transform: scale(1.2);
+    transition: 2s;
+}
+.copyright-text{
+
+    color: gray;
+    font-size: 14px;
+     text-align: center;
+     margin:20px 0;
+     animation-name:bounce;
+     cursor: pointer;
+     }
+
+.copyright-text:hover{
+    transform: scale(1.2);
+      transform: scaleX(1.5);
+
+    transition: 2s;
+}

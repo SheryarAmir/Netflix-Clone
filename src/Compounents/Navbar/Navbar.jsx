@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./Navbar.css";
 import logo from "../../assets/logo.png";
 import search_icon from "../../assets/search_icon.svg";
@@ -10,28 +10,32 @@ import  { useState, useEffect } from 'react';
 
 
 const Navbar = () => {
-  const [navbarColor, setNavbarColor] = useState('transparent');
+ 
+  useEffect(()=>{
+    window.addEventListener('scroll', ()=>{
+      
+      if(Window,scrollY >= 80){
+        navRef.current.classList.add('nav-dark')
+      }
+      else{
+        navRef.current.classList.remove('nav-dark')
+      }
+    });
 
-  const handleScroll = () => {
-    if (window.scrollY > 50) {
-      setNavbarColor('rgba(0, 0, 0, 10)'); // Light black color
-    } else {
-      setNavbarColor('transparent');
-    }
-  };
+  },[])
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+
+const navRef =useRef();
+
+
+
+
 
   return (
 
+    // style={{ backgroundColor: navbarColor, transition: 'background-color 0.3s ease' }}
 
-
-    <div className="Navbar " style={{ backgroundColor: navbarColor, transition: 'background-color 0.3s ease' }}>
+    <div ref={navRef} className="Navbar " >
       <div className="navbarLeft">
         <img src={logo} alt="" />
         <ul>
